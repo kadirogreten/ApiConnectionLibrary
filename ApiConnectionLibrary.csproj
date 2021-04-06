@@ -12,9 +12,10 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>Api, Connect Api, Post, Get</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <AssemblyVersion>1.0.1</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
-    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.5.0</AssemblyVersion>
+    <FileVersion>1.0.5.0</FileVersion>
+    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Add default headers Authorization schema and token</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

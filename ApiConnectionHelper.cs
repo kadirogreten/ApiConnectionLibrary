@@ -10,11 +10,16 @@ namespace ApiConnectionLibrary
 {
     public class ApiConnectionHelper<T>
     {
-        public static async Task<T> GetAsync(string UrlEndPoint)
+        public static async Task<T> GetAsync(string UrlEndPoint,string schema, string authorizationToken)
         {
             T result;
             using (var httpClient = new HttpClient())
             {
+                if (!string.IsNullOrEmpty(schema) && !string.IsNullOrEmpty(authorizationToken))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(schema, authorizationToken);
+                    
+                }
                 using (var response = await httpClient.GetAsync($"{UrlEndPoint}"))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
@@ -30,6 +35,13 @@ namespace ApiConnectionLibrary
             T result;
             using (var httpClient = new HttpClient())
             {
+                if (!string.IsNullOrEmpty(model.Schema) && !string.IsNullOrEmpty(model.AuthorizationToken))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(model.Schema, model.AuthorizationToken);
+
+                }
+               
+
                 StringContent content = new StringContent(JsonConvert.SerializeObject(model.Parameters), Encoding.UTF8, "application/json");
 
                 using (var response = await httpClient.PostAsync(model.UrlEndPoint, content))
