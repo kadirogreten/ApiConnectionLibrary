@@ -7,6 +7,14 @@
     <Copyright>Copyright 2021 Kadir Öğreten</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/kadirogreten/ApiConnectionLibrary</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kadirogreten/ApiConnectionLibrary</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Api, Connect Api, Post, Get</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
