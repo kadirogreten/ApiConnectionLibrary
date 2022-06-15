@@ -52,5 +52,32 @@ namespace ApiConnectionLibrary
             }
             return result;
         }
+
+
+        public static async Task<T> PostWithoutParametersAsync(ConnectApiModel model)
+        {
+            T result;
+            using (var httpClient = new HttpClient())
+            {
+                if (!string.IsNullOrEmpty(model.Schema) && !string.IsNullOrEmpty(model.AuthorizationToken))
+                {
+                    httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue(model.Schema, model.AuthorizationToken);
+
+                }
+
+                model.Parameters = new
+                {
+
+                };
+                StringContent content = new StringContent(JsonConvert.SerializeObject(model.Parameters), Encoding.UTF8, "application/json");
+
+                using (var response = await httpClient.PostAsync(model.UrlEndPoint, content))
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    result = JsonConvert.DeserializeObject<T>(apiResponse);
+                }
+            }
+            return result;
+        }
     }
 }
